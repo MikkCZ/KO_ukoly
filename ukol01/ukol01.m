@@ -6,6 +6,8 @@ function ukol01()
     g = graph(prices);
     tree = spanningtree(g);
     graphedit(tree);
+    edges = cell2mat(tree.edl);
+    sum(edges(:,3))
 end
 
 function cleanedData = cleanData(oldStorage)
