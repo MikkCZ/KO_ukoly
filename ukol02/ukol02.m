@@ -33,7 +33,8 @@ function [xmin,status] = solve(sense,c,A,b,ctype,lb,ub,vartype)
     %optimization parameters
     schoptions=schoptionsset('ilpSolver','glpk','solverVerbosity',2);
     %call command for ILP
-    [xmin,~,status,~] = ilinprog(schoptions,sense,c,A,b,ctype,lb,ub,vartype);
+    [xmin,fmin,status,~] = ilinprog(schoptions,sense,c,A,b,ctype,lb,ub,vartype);
+    disp('fmin: '); disp(fmin)
 end
 
 function A = ukol02_generateA(hours, shift)
